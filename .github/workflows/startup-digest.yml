@@ -1,0 +1,97 @@
+name: Startup digest
+
+on:
+  schedule:
+    # Actions cron is UTC-only, so the 8am ET slot is registered TWICE — once for
+    # EDT, once for EST — and the `gate` job below drops whichever is not in
+    # effect, holding 8am ET year-round. Keep in sync with the gate's
+    # TARGET_ET_HOURS; see .github/dst-gate.sh.
+    - cron: "0 12 * * *"     # EDT (Mar-Nov) -> 8am ET
+    - cron: "0 13 * * *"     # EST (Nov-Mar) -> 8am ET
+  workflow_dispatch:
+
+permissions:
+  contents: write            # push persisted state to the `state` branch
+
+concurrency:
+  group: funding-digest      # never overlap two funding runs (state safety)
+  cancel-in-progress: false
+
+jobs:
+  # Drop the half of the schedule that belongs to the other DST period.
+  gate:
+    runs-on: ubuntu-latest
+    outputs:
+      run: ${{ steps.check.outputs.run }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: check
+        env:
+          TARGET_ET_HOURS: "8"
+          SCHEDULE: ${{ github.event.schedule }}
+        run: bash .github/dst-gate.sh
+
+  digest:
+    needs: gate
+    if: needs.gate.outputs.run == 'true'
+    runs-on: ubuntu-latest
+    # Runners are UTC; render digest timestamps in ET so the email clock matches.
+    env:
+      TZ: America/New_York
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install deps
+        run: pip install -r requirements.txt
+
+      # Durable state lives on the `state` branch. This workflow owns ONLY the
+      # funding-side files: enrichment cache, Hunter monthly counter, and
+      # funded_companies.json (its hand-off to the jobs workflow). Everything
+      # job-search (state, Getro, discovery) lives in companies-digest.yml.
+      - name: Restore state
+        run: |
+          git fetch -q origin state 2>/dev/null || true
+          for f in enrich_cache.json hunter_usage.json funded_companies.json; do
+            git cat-file -e "origin/state:$f" 2>/dev/null \
+              && git show "origin/state:$f" > "$f" && echo "restored $f" || true
+          done
+
+      # The compiled profile (profile-derived focus keywords + locations) is
+      # gitignored — this repo is public, so it can't be committed. Ship it as the
+      # PROFILE_COMPILED_JSON secret instead (paste the contents of your local
+      # profile.compiled.json). Without it, both digests silently fall back to the
+      # generic hardcoded keywords in the script — which is what made an early
+      # digest match capsule hotels and space startups.
+      - name: Load tuning variables
+        env:
+          VARS_JSON: ${{ toJSON(vars) }}
+        run: |
+          python - <<'PY' >> "$GITHUB_ENV"
+          import json, os
+          for k, v in json.loads(os.environ["VARS_JSON"] or "{}").items():
+              v = str(v)
+              if "\n" not in v:            # $GITHUB_ENV is line-oriented
+                  print(f"{k}={v}")
+          PY
+
+      - name: Send digest
+        env:
+          EMAIL_USER:        ${{ secrets.EMAIL_USER }}
+          EMAIL_PASS:        ${{ secrets.EMAIL_PASS }}
+          EMAIL_TO:          ${{ secrets.EMAIL_TO }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          HUNTER_API_KEY:    ${{ secrets.HUNTER_API_KEY }}
+          GEO_MODE:          ${{ vars.GEO_MODE || 'us' }}
+        run: python funding_digest.py
+
+      # Persist enrichment cache, Hunter counter, and the funded-company hand-off
+      # the jobs workflow reads.
+      - name: Persist state
+        if: always()
+        env:
+          FILES: "enrich_cache.json hunter_usage.json funded_companies.json"
+        run: bash .github/persist-state.sh
