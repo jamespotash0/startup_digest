@@ -60,12 +60,6 @@ jobs:
               && git show "origin/state:$f" > "$f" && echo "restored $f" || true
           done
 
-      # The compiled profile (profile-derived focus keywords + locations) is
-      # gitignored — this repo is public, so it can't be committed. Ship it as the
-      # PROFILE_COMPILED_JSON secret instead (paste the contents of your local
-      # profile.compiled.json). Without it, both digests silently fall back to the
-      # generic hardcoded keywords in the script — which is what made an early
-      # digest match capsule hotels and space startups.
       - name: Load tuning variables
         env:
           VARS_JSON: ${{ toJSON(vars) }}

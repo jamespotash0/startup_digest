@@ -6,7 +6,6 @@ import os
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-os.environ.setdefault("JOB_IGNORE_PROFILE", "1")
 sys.path.insert(0, os.path.dirname(HERE))
 
 import llm                            # noqa: E402

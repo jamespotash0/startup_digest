@@ -133,8 +133,7 @@ LOCATION_KEYWORDS = env_list("FUNDING_LOCATIONS",
                              ["new york", "nyc", "brooklyn", "manhattan"])
 
 # Second-choice metro — worth surfacing, worth less than NYC. Kept separate from
-# LOCATION_KEYWORDS because profile.compiled.json overwrites that list, and
-# because an SF raise should not outrank a New York one at equal focus.
+# LOCATION_KEYWORDS because an SF raise should not outrank a New York one at equal focus.
 SECONDARY_LOCATION_KEYWORDS = env_list("FUNDING_SECONDARY_LOCATIONS", [
     "san francisco", "sf", "bay area", "palo alto", "menlo park",
     "mountain view", "redwood city", "oakland", "silicon valley",
@@ -246,11 +245,6 @@ SUBSTACK_FEEDS = [
 SUBSTACK_LOOKBACK_DAYS = env_int("SUBSTACK_LOOKBACK_DAYS", 14)
 SUBSTACK_MAX = env_int("SUBSTACK_MAX", 6)
 
-
-# ...and the environment wins over the profile, same rule as the companies
-# digest: an unset var changes nothing, a set one overrides for this run.
-FOCUS_KEYWORDS = env_list("FUNDING_FOCUS_KEYWORDS", FOCUS_KEYWORDS)
-LOCATION_KEYWORDS = env_list("FUNDING_LOCATIONS", LOCATION_KEYWORDS)
 
 # Max items to include in the email.
 MAX_ITEMS = env_int("FUNDING_MAX_ITEMS", 40)

@@ -7,11 +7,3 @@ __pycache__/
 *.pyc
 .venv/
 .state_wt/          # transient git worktree used to persist CI state
-
-# Local config and caches — keep out of the repo.
-# Each forker creates their own profile.json from profile.example.json; only the
-# example is committed. To have your fork's GitHub Actions use them, force-add in
-# your own fork: git add -f profile.json .vscode/
-
-# ephemeral discovery breadcrumb (written 8am, read by funding digest same run)
-discover_status.json
