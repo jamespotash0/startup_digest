@@ -152,7 +152,7 @@ GEO_MODE = os.environ.get("GEO_MODE", "us")
 # comes back as biotech/pharma and drops.
 KEEP_CATEGORIES = {
     "ai/software", "b2b saas", "devtools/infra", "fintech",
-    "proptech/construction", "healthtech",
+    "proptech/construction", "healthtech", "consumer software",
 }
 
 # A headline must show a funding VERB *and* an amount-or-round to count. The old
@@ -672,20 +672,11 @@ def build_html(items, letters=None):
         return ("<ul style='list-style:none;padding:0;margin:0;font-family:sans-serif'>"
                 + "".join(out) + "</ul>")
 
-    geo = "US" if GEO_MODE == "us" else "global"
-    parts = [f"<h2 style='font-family:sans-serif;margin-bottom:2px'>Funding digest — {today}</h2>",
-             f"<p style='font-family:sans-serif;color:#777;font-size:13px;margin-top:0'>"
-             f"{len(best)} worth an email"
-             + (f" · {len(other)} more below" if other else "")
-             + f" · {geo} raises, last {LOOKBACK_HOURS}h</p>"]
-    if best:
-        parts.append("<h3 style='font-family:sans-serif;font-size:13px;color:#888;"
-                     "text-transform:uppercase;letter-spacing:.5px;margin:18px 0 10px'>"
-                     "Best matches</h3>" + block(best))
-    if other:
-        parts.append("<h3 style='font-family:sans-serif;font-size:13px;color:#888;"
-                     "text-transform:uppercase;letter-spacing:.5px;margin:22px 0 10px'>"
-                     "Other recent raises</h3>" + block(other))
+    # One list, best first. The count line and "Best matches" / "Other recent
+    # raises" headings were removed on request 2026-11-23: with a handful of
+    # raises a day they were more chrome than content.
+    parts = [f"<h2 style='font-family:sans-serif;margin-bottom:14px'>Funding digest — {today}</h2>",
+             block(best + other)]
     if letters:
         parts.append(newsletters_block(letters))
     return "<div style='max-width:640px'>" + "".join(parts) + "</div>"
