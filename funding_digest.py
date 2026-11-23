@@ -83,7 +83,9 @@ except Exception:
 # setting in the repo that can run up a real bill.
 #
 #   N     = only the top N ranked raises  (the default, so a fresh fork cannot
-#           surprise anyone with a bill on day one)
+#           surprise anyone with a bill on day one). 15 covers a normal day's
+#           volume now that descriptive prefixes no longer split one company
+#           into three separate lookups.
 #   "all" = every collected raise, up to FUNDING_MAX_ITEMS (40). Fullest digest,
 #           most spend — opt in deliberately.
 #   0     = no enrichment at all: free headlines only, no LLM key needed.
@@ -92,7 +94,7 @@ except Exception:
 # README got up to 40 paid calls a day on their own key, which is a poor way to
 # find out what something costs.
 _ENRICH_RAW = (os.environ.get("FUNDING_ENRICH_TOP_N") or "").strip().lower()
-ENRICH_TOP_N = None if _ENRICH_RAW == "all" else env_int("FUNDING_ENRICH_TOP_N", 10)
+ENRICH_TOP_N = None if _ENRICH_RAW == "all" else env_int("FUNDING_ENRICH_TOP_N", 15)
 
 # How far back to look. Run daily -> keep at ~28h so nothing slips through gaps.
 LOOKBACK_HOURS = env_int("FUNDING_LOOKBACK_HOURS", 28)
@@ -724,7 +726,46 @@ def guess_company(title):
                  r"announces|bags)\b", t, flags=re.I)
     head = m[0].strip() if m else t
     head = re.sub(r"^(exclusive|breaking|report)[:\-]\s*", "", head, flags=re.I)
-    return head.strip(" ,:").strip()[:60]
+    return strip_descriptors(head.strip(" ,:").strip())[:60]
+
+
+# Headlines describe a company before naming it: "UK defense AI startup Agon",
+# "Defense AI startup Agon" and "Agon" are one company, but they are three
+# different strings, so company_key() kept them apart and each one cost its own
+# enrichment call. Peel the description off the front.
+_DESCRIPTOR = re.compile(
+    r"^(?:"
+    r"(?:[A-Z][a-z]+(?:-[A-Z][a-z]+)?\s+)?"          # a leading country/place
+    r"(?:\w+[- ])*?"                                 # "defense AI", "fintech"
+    r"(?:startup|start-up|company|firm|scaleup|scale-up|unicorn|platform|maker|"
+    r"developer|provider|venture|business)"
+    r"\s+)", re.I)
+# Words that are a description on their own, never the start of a company name.
+_LEAD_NOISE = re.compile(
+    r"^(?:the|a|an|us|uk|eu|indian|chinese|israeli|french|german|british|"
+    r"canadian|japanese|korean|australian|dutch|swedish|chip|ai|defense|"
+    r"defence|fintech|healthtech|proptech|biotech|climate|crypto|web3|"
+    r"enterprise|b2b|saas|robotics|quantum|space)\s+", re.I)
+
+
+def strip_descriptors(name):
+    """"UK defense AI startup Agon" -> "Agon". Leaves a name alone when peeling
+    would empty it, so a company genuinely called "Startup" survives."""
+    prev = None
+    out = (name or "").strip()
+    while out and out != prev:
+        prev = out
+        cut = _DESCRIPTOR.sub("", out, count=1)
+        if cut.strip():
+            out = cut.strip()
+    # Then shave any remaining purely-descriptive lead words.
+    prev = None
+    while out and out != prev:
+        prev = out
+        cut = _LEAD_NOISE.sub("", out, count=1)
+        if cut.strip():
+            out = cut.strip()
+    return out or (name or "").strip()
 
 
 if __name__ == "__main__":

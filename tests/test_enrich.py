@@ -190,3 +190,28 @@ def test_a_failed_lookup_is_retried_but_not_forever():
     finally:
         E.ai_lookup, E.find_email = real_lookup, real_email
         os.chdir(cwd)
+
+
+@case
+def test_descriptive_prefixes_do_not_split_one_company_into_three():
+    """A real run enriched "Agon", "UK defense AI startup Agon" and "Defense AI
+    startup Agon" as three companies — three paid lookups for one raise. The
+    dedupe key is the guessed name, so a description in front of it defeats
+    dedupe entirely."""
+    same = ["UK defense AI startup Agon raises $30M",
+            "Defense AI startup Agon raises $30M",
+            "Agon raises $30M"]
+    keys = {F.company_key(F.guess_company(t)) for t in same}
+    equal(len(keys), 1, f"one company read as {len(keys)}: {keys}")
+    equal(keys.pop(), "agon")
+
+
+@case
+def test_stripping_descriptors_never_empties_a_name():
+    """A company genuinely called "Startup" has to survive the peeling."""
+    for headline, want in [("Startup raises $1M", "startup"),
+                           ("Ramp raises $150M Series D", "ramp"),
+                           ("Indian fintech startup Jupiter raises $12M", "jupiter")]:
+        got = F.company_key(F.guess_company(headline))
+        check(got, f"{headline!r} produced an empty company key")
+        equal(got, want, headline)

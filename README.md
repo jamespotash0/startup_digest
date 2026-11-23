@@ -73,7 +73,7 @@ a `state` branch, so you never pay twice to research the same company.
 ## Cost
 
 `FUNDING_ENRICH_TOP_N` is the only setting that can run up a bill — one
-web-search call plus an optional Hunter lookup per company. Capped at **10 per
+web-search call plus an optional Hunter lookup per company. Capped at **15 per
 run** by default. `all` enriches every raise; `0` turns enrichment off entirely
 and needs no LLM key at all.
 
