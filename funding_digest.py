@@ -202,7 +202,8 @@ NON_US_TERMS = [
     "warsaw", "estonia", "tallinn", "israel", "israeli", "tel aviv",
     "singapore", "japan", "japanese", "tokyo", "korea", "korean", "seoul",
     "australia", "australian", "sydney", "melbourne", "anz", "new zealand",
-    "canada", "canadian", "toronto", "vancouver", "brazil", "brazilian",
+    "canada", "canadian", "toronto", "vancouver", "montreal", "montréal",
+    "quebec", "québec", "bharat", "brazil", "brazilian",
     "são paulo", "sao paulo", "mexico", "nigeria", "lagos", "kenya", "nairobi",
     "south africa", "south african", "johannesburg", "cape town", "egypt",
     "dubai", "uae", "abu dhabi", "saudi", "turkey", "istanbul", "indonesia",
@@ -210,7 +211,8 @@ NON_US_TERMS = [
 ]
 # Outlets whose coverage is essentially all non-US.
 NON_US_SOURCES = [
-    "eu-startups", "tech.eu", "calcalistech", "ynetnews", "entrackr",
+    "eu-startups", "tech.eu", "calcalistech", "ctech", "ynetnews", "entrackr",
+    "entarabi", "fintech.ca",
     "indian startup times", "yourstory", "weetracker", "bw disrupt",
     "moneycontrol", "smartcompany", "startupdaily", "sifted", "tech in asia",
     "e27", "krasia", "techcabal", "disrupt africa", "arabian business",
@@ -248,6 +250,10 @@ SUBSTACK_MAX = env_int("SUBSTACK_MAX", 6)
 
 # Max items to include in the email.
 MAX_ITEMS = env_int("FUNDING_MAX_ITEMS", 40)
+
+# Rounds above this (in $M) are growth deals at companies far past the stage
+# where a cold email to the founder lands — a $1.75B Sierra round isn't one.
+MAX_AMOUNT_M = env_int("FUNDING_MAX_AMOUNT_M", 150)
 
 # Score at or above which a raise lands in "Best matches". Scores are computed on
 # the headline AND the researched description, so a genuine AI/B2B company clears
@@ -360,6 +366,24 @@ def off_sector_reject(enr: dict) -> str:
     return "" if cat in KEEP_CATEGORIES else cat
 
 
+def amount_millions(amount: str) -> float:
+    """"$1.75B" -> 1750.0, "$20M" -> 20.0; 0 when unknown."""
+    m = re.match(r"\$([\d.,]+)([BMK]?)$", amount or "")
+    if not m:
+        return 0.0
+    try:
+        n = float(m.group(1).replace(",", ""))
+    except ValueError:
+        return 0.0
+    return n * {"B": 1000, "M": 1, "K": 0.001}.get(m.group(2), 0.000001)
+
+
+def name_is_headline(company: str) -> bool:
+    """guess_company fell back to the headline: "Former Imperva executives raise
+    $10 million Seed to secure A" is not a company anyone can look up."""
+    return bool(re.search(r"\braise[sd]?\b|\$\d", company)) or len(company.split()) > 6
+
+
 def extract_round(title: str, summary: str):
     """(stage, amount) as display strings, e.g. ("Seed", "$13M")."""
     blob = f"{title} {summary}"
@@ -440,7 +464,8 @@ def collect():
         feeds += EU_FEEDS
     cutoff = datetime.now(timezone.utc) - timedelta(hours=LOOKBACK_HOURS)
     groups, seen_titles = {}, set()
-    dropped = {"stale": 0, "not_a_raise": 0, "non_us": 0, "dupe": 0}
+    dropped = {"stale": 0, "not_a_raise": 0, "non_us": 0, "dupe": 0,
+               "no_name": 0, "too_big": 0}
 
     for url in feeds:
         try:
@@ -481,8 +506,14 @@ def collect():
             ck = company_key(company)
             if not ck:
                 continue
+            if name_is_headline(company):
+                dropped["no_name"] += 1
+                continue
 
             stage, amount = extract_round(title, summary)
+            if amount_millions(amount) > MAX_AMOUNT_M:
+                dropped["too_big"] += 1
+                continue
             item = {
                 "title": title,
                 "company": company,

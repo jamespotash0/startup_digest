@@ -60,7 +60,7 @@ HUNTER_USAGE = "hunter_usage.json"
 
 # Bump when the shape of an enrich() result changes; entries cached at an older
 # version are re-fetched instead of returned with fields the callers now expect.
-SCHEMA_VERSION = 2
+SCHEMA_VERSION = 3    # 3: founder-matched Hunter emails, no cite tags
 
 # Objective sector buckets the researcher must choose from. Kept here (not in the
 # digest) because the answer is a fact about the company and is safe to cache;
@@ -150,6 +150,9 @@ def ai_lookup(company):
 def _parse_json(text):
     if not text:
         return {}
+    # Web search answers can carry citation markup into the values:
+    # '(cite index="11-1">Embo develops...</cite>' shipped as a description.
+    text = re.sub(r'\(?<?cite\b[^>]*>|</cite>', "", text)
     text = text.strip().strip("`")
     text = re.sub(r"^json", "", text).strip()
     m = re.search(r"\{.*\}", text, re.S)
@@ -169,8 +172,10 @@ def _get_json(url):
         return json.loads(r.read().decode())
 
 
-def hunter_domain_search(domain):
-    """Returns (pattern, best_email) or (None, None). Costs one Hunter call."""
+def hunter_domain_search(domain, founders=()):
+    """Returns (pattern, best_email) or (None, None). Costs one Hunter call.
+    best_email must belong to a named founder: Hunter's first "executive" at
+    sierra.ai was some mike@, not Bret Taylor, and it shipped as verified."""
     if not (HUNTER_API_KEY and domain):
         return None, None
     if hunter_calls_left() <= 0:
@@ -182,10 +187,11 @@ def hunter_domain_search(domain):
         data = d.get("data", {})
         pattern = data.get("pattern")  # e.g. "{first}" or "{first}.{last}"
         best = None
+        names = {(f.split()[0].lower(), f.split()[-1].lower())
+                 for f in founders if len(f.split()) > 1}
         for e in data.get("emails", []):
-            pos = (e.get("position") or "").lower()
-            seniority = (e.get("seniority") or "").lower()
-            if any(k in pos for k in ("founder", "ceo", "co-founder")) or seniority == "executive":
+            who = ((e.get("first_name") or "").lower(), (e.get("last_name") or "").lower())
+            if who in names:
                 best = e.get("value")
                 break
         return pattern, best
@@ -249,7 +255,7 @@ def find_email(domain, founders):
     first = founder.split()[0] if founder else ""
     last = founder.split()[-1] if len(founder.split()) > 1 else ""
 
-    pattern, best = hunter_domain_search(domain)
+    pattern, best = hunter_domain_search(domain, founders)
     if best:
         return best, "verified (Hunter)", []
     if pattern:

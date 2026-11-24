@@ -155,8 +155,6 @@ def test_headlines_that_are_not_a_raise_never_reach_enrichment():
 
 
 
-if __name__ == "__main__":
-    main("enrich")
 
 
 @case
@@ -214,3 +212,49 @@ def test_stripping_descriptors_never_empties_a_name():
         got = F.company_key(F.guess_company(headline))
         check(got, f"{headline!r} produced an empty company key")
         equal(got, want, headline)
+
+
+# ------------------------------------------- fixes from the 2026-11-24 digest
+@case
+def test_hunter_email_must_belong_to_a_founder():
+    """sierra.ai's first Hunter "executive" was a mike@, shipped as verified for
+    Bret Taylor. An unmatched address falls back to the founder + pattern."""
+    real, real_key, real_left = E._get_json, E.HUNTER_API_KEY, E.hunter_calls_left
+    E.HUNTER_API_KEY, E.hunter_calls_left, E._bump_hunter = "k", (lambda: 9), (lambda: None)
+    E._get_json = lambda url: {"data": {"pattern": "{first}", "emails": [
+        {"value": "mike@sierra.ai", "first_name": "Mike", "last_name": "Smith",
+         "seniority": "executive", "position": "CEO"}]}}
+    try:
+        equal(E.find_email("sierra.ai", ["Bret Taylor"])[:2], ("bret@sierra.ai", "pattern (Hunter)"))
+        E._get_json = lambda url: {"data": {"emails": [
+            {"value": "bret@sierra.ai", "first_name": "Bret", "last_name": "Taylor"}]}}
+        equal(E.find_email("sierra.ai", ["Bret Taylor"])[:2], ("bret@sierra.ai", "verified (Hunter)"))
+    finally:
+        E._get_json, E.HUNTER_API_KEY, E.hunter_calls_left = real, real_key, real_left
+
+
+@case
+def test_citation_tags_are_stripped_from_lookups():
+    got = E._parse_json('{"description": "(cite index=\\"11-1\\">Embo builds models.</cite>"}')
+    equal(got.get("description"), "Embo builds models.")
+
+
+@case
+def test_headline_fallbacks_and_growth_rounds_are_caught():
+    check(F.name_is_headline("Former Imperva executives raise $10 million Seed to secure A"),
+          "a headline used as a company name should be caught")
+    for n in ["Supertake", "Bharat Semi", "Verra", "Embo"]:
+        check(not F.name_is_headline(n), f"{n!r} is a real name")
+    equal(F.amount_millions("$1.75B"), 1750.0)
+    equal(F.amount_millions("$20M"), 20.0)
+    equal(F.amount_millions(""), 0.0)       # unknown amount is kept, not capped
+    for headline, source in [("Montréal Startup raises seed", ""),
+                             ("Bharat Semi raises $24M", "FinSMEs"),
+                             ("invoiceQ raises $5M Series A", "entARABI"),
+                             ("Ex-Imperva team raises $10M", "CTech")]:
+        check(F.non_us_hint(headline, "", source), f"{headline!r} ({source}) should be non-US")
+    equal(F.non_us_hint("Supertake raises $20M seed", "", "TechCrunch"), "")
+
+
+if __name__ == "__main__":
+    main("enrich")
