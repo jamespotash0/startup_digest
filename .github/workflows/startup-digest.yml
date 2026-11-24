@@ -5,9 +5,10 @@ on:
     # Actions cron is UTC-only, so the 8am ET slot is registered TWICE — once for
     # EDT, once for EST — and the `gate` job below drops whichever is not in
     # effect, holding 8am ET year-round. Keep in sync with the gate's
-    # TARGET_ET_HOURS; see .github/dst-gate.sh.
-    - cron: "0 12 * * *"     # EDT (Mar-Nov) -> 8am ET
-    - cron: "0 13 * * *"     # EST (Nov-Mar) -> 8am ET
+    # TARGET_ET_HOURS; see .github/dst-gate.sh. Minute :07, not :00, dodges the
+    # top-of-hour pile-up that delays or drops scheduled runs.
+    - cron: "7 12 * * *"     # EDT (Mar-Nov) -> 8:07 ET
+    - cron: "7 13 * * *"     # EST (Nov-Mar) -> 8:07 ET
   workflow_dispatch:
 
 permissions:
