@@ -1,12 +1,132 @@
 [
   {
+    "company": "Perry AI",
+    "domain": "useperry.com",
+    "funding": {
+      "round": "Seed",
+      "amount": "$2.2M",
+      "date": "2026-11-24",
+      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOWUFRSF82b0hKYl93Szhza0tKQXFHZ1B1dmVhdVpTNkhnZlR1WXV5R3VkeXA1d0UyWG9KZzVTbUV5SWhENEg0VjNqSFhyZDFKZGtJVXNITExpR2VpenNxVk03bWhodGplUEVZMGZKUjFmT0dYVTlCM011OXlWZ00yXzEzYkZtUUN1d1RfQnZYdVNGZ0ZlamlyRG53cXk5LWZ4c2k4ekZWQ3JrQTc4Tm41RzhkV0xFRnZSSGl4SDR4aW11MkZqbEHSAdMBQVVfeXFMUHFmMUdob3NvV2s1WmxycFFwRGhhd3NRdk5VWG9jYW9mQjNTTGhoZ09WYjRSNzBna25tREthdXdtLXdCbEhBN1FiMS13ZTZCUzQtY1FvQmYteHZudDBYTGVkMG1odmo2NGRKMEFWck9VUURaSVNIbHJWTDlFS1k4OWlqd1ZUY1k4QVprMzZUdWREVXlPc2loWkdTazA5eTdtWFZQbWVVUTRYUnltMlZVeWVyUWZqMUZqWGJjOVZadXk1Tm1hTXBvbnp0VW9TdWpKVEhwbw?oc=5"
+    }
+  },
+  {
+    "company": "Matters.AI",
+    "domain": "matters.ai",
+    "funding": {
+      "round": "Series A",
+      "amount": "$12M",
+      "date": "2026-11-23",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPQllPQnp3SG4tWmFRbVRZWXo4d0xyeFpPeC1sWjlOa2NTTEYxeUVqekxIaGZZTWwwYmJ1ckJGZ0ZBOHptVG5EaVllRmdFanBlaVI3VmF6ekwwYjhXWERUaWRmWGxiQ0t2RkQwVmp1VmFMWEZ4TW9XcE1PeG9jMEx2d1F4dS1jaWZXWWhqSzBvVDVRbDVVZWdQSVZIeWVXQ2lWQzBGa3NneWZmWnNXZ0VMREw1MU1nMTg?oc=5"
+    }
+  },
+  {
+    "company": "Supertake",
+    "domain": "supertake.com",
+    "funding": {
+      "round": "Seed",
+      "amount": "$20M",
+      "date": "2026-11-23",
+      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPdlo2b3UxQkYyR3JpVHZaNC0xUXl2T2lIMk4ydlNTVnJzMUItM1BGcTM5TTZXLUxaTE5KY25jcXE2Y21USm5MVHdvSjhUby0tajZmNmVPalRCN3M0RjZYTXBPcWJKSFdiY3JHam9DSks0Und2Vm1FMnB2bTdQWFRQdmV6QkY2eXc1MUktNHdQUUpQNi1JZGQ4dTFrX0ZQblZjYXp6UU5Sa2hxWkZJR0dWOThxQkIxNGZVSzJfa0UtNHQ?oc=5"
+    }
+  },
+  {
+    "company": "Verra",
+    "domain": "",
+    "funding": {
+      "round": "Seed",
+      "amount": "$5M",
+      "date": "2026-11-24",
+      "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPVkp5MDliWWpQeXBSTXlpS1NhYV9QVmkxZ3hhUEFZUGNJNVN4OE8zTjhkQ3FtMzZEUDkxeXpHUldUdERpVjhzNU92TV9Va2V4LWpKMG4zdzB1am9ETjlJenUtTFc0YjQtNk9ob3g3Z01UaDR2SjdublhkQjVrczlTd004WXRrX1JDbXN4dkhMYkhsUFItNElycUJ4RFlnQWNONjFCZ1BjYjN6bEhCZzdlUmZSZkpLV3MtTWs3bjVBLTFIWHNneThKWkk2ZmcwQ0VJYmFPNFVESjE?oc=5"
+    }
+  },
+  {
     "company": "Sierra",
     "domain": "sierra.ai",
     "funding": {
       "round": "",
       "amount": "$1.75B",
       "date": "2026-11-23",
-      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQcFFVUE04a3hYSG5TYlNFNHIzdjE2VXhOazBFSFJSbVd4Y3ZheUNUMHdENmVHV3pQZjRPTWNobzBCeUtUYWVmenVQUGFIVmNQYzlSelk1aHV1eEtQTmZhb2dIMVhRYU9iVUR2S0NZS3BZajAwSkNnWkJDb2RMekFXZi1ZMGw?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9pS1lWVVNlSjZiTEZNZDNmeFpFS0x5TFo3dEhQNzZPRlRWb1Jodkk2OHFPYU1zdEpDdWhFZDFCS3BWaEpVY0R5SC1Ic1BSMTByc2tuejllTmF3YjBKUE1RQzdVRGh1RUJ0MG82a2MyV0VBZzVsSEHSAXZBVV95cUxPaUtZVlVTZUo2YkxGTWQzZnhaRUtMeUxaN3RIUDc2T0ZUVm9SaHZJNjhxT2FNc3RKQ3VoRWQxQktwVmhKVWNEeUgtSHNQUjEwcnNrbno5ZU5hd2IwSlBNUUM3VURodUVCdDBvNmtjMldFQWc1bEhB?oc=5"
+    }
+  },
+  {
+    "company": "Former Imperva executives raise $10 million Seed to secure A",
+    "domain": "",
+    "funding": {
+      "round": "Seed",
+      "amount": "$10M",
+      "date": "2026-11-24",
+      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5NN2lrYV9scDVySTdRMUZYNjR5UEJDbzdqWUQtZW02WDBXQmE3bUlFRkt6VGJSYjZockdEeVNFLWREaXlZQlI2dmp6SHdSeENKM1B4bGNQQmlsN0lROFFlVFdsekl0TFF2?oc=5"
+    }
+  },
+  {
+    "company": "Montr\u00e9al Startup",
+    "domain": "",
+    "funding": {
+      "round": "Seed",
+      "amount": "",
+      "date": "2026-11-24",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQMjd4YU5pZTU3Q2tPUkFnZks0dW1lV1ZXS1haYnRvRERKWFlDU0xfdnd2TjR1MjFjQ25McXZROXZGYnduZzVCRTZoTkxrcEFWRjZWLVBtc1QyOTk0Rzg1cmRPc1RMSlo4WVR4U1FNRWZmbEJPUjVuOTZnUXhQX0QwbUF1ZXQ5ci1DM0hjZkQ2NA?oc=5"
+    }
+  },
+  {
+    "company": "Embo",
+    "domain": "embo.com",
+    "funding": {
+      "round": "Seed",
+      "amount": "$110M",
+      "date": "2026-11-24",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNQkFqZXhjUTZBMkEzZUlOU21vbEJQeWxtOTByeG11NlQ5RkExSnpZcXFYbmlxVE9nbVAtZFdYNzVENS1KNW5CRWRuTlJlQks5VjN5dURtN3FWT2h5SlIwMnVOak14clF2TTNMLXdSMnlkOGJQaE9PUExYbmdjN2xIdUMxdm1NWWNQTVN3NHdGX2pycmpuZlVpVm1fajZwa1Zncmc?oc=5"
+    }
+  },
+  {
+    "company": "Neem",
+    "domain": "neem.io",
+    "funding": {
+      "round": "Seed",
+      "amount": "",
+      "date": "2026-11-24",
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPOHE2RUlaRVdBaWdJSDU1YTlHUUdMZnZCVUFjUDVuU2dZNnI2M3Zob2dhYTVPNmZyZER0bDFXYXVKeXR0d203R3FKRDZpdEtERjluUGZ4TjhUay1kYjZIa3dNT09iNlFFRWlDZFBIOVI2aDl3MDFRX0Jxb3NnVEt1ZUo2RF8xdw?oc=5"
+    }
+  },
+  {
+    "company": "P3 State",
+    "domain": "p3state.ai",
+    "funding": {
+      "round": "",
+      "amount": "$9.5M",
+      "date": "2026-11-23",
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQaEY4bmtHeHlTTHdoUGpaN21nN2ZIUEE4eFN5NnpqRUxZMHprN1FXUlJpU1dMa3NzZlNHQm1rMGRseDlENGVoYmJwT0R2VmNIcG5laGg1Y29rOGd1UGNScmpScEt2WnAyVDBIRngyYUxGZGk2akk3ZHFJSHFsT19kSU5TZHAyb0NYU0NocmNueGZQODJza0dpZ0hfaWhiRC1mRU10VldPZHpTWkk?oc=5"
+    }
+  },
+  {
+    "company": "U.K. Startup Agon",
+    "domain": "agon.com",
+    "funding": {
+      "round": "",
+      "amount": "$70M",
+      "date": "2026-11-23",
+      "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxONEswSktyb2ZNcTRCSGhHMnhPNF9mTHQ4RURGckRpLS1jdTB5SUJJWFR5WmZGV25JdjdIYTFqWDhsTDAta1hCa0x5SHlpX0xRN0hGa1EzTm1RSUtiZEpOeGtrQWxwSExmLXBiVmZoN3Noa3FlYXNCSlRVZzZSeHVFdXlhY2ZQbTJza1Z6UExBSTJwR1phc2UxTGhFVFlyZXFXZ2ZORlR5SUZVd0lhbDkySkxNMFVacVhmaXItRkttSlU4c3g5bzg2RVV4ay1iVTY5dEgtOWZ1cFpQaHRPLWEydFlB?oc=5"
+    }
+  },
+  {
+    "company": "invoiceQ",
+    "domain": null,
+    "funding": {
+      "round": "Series A",
+      "amount": "$5M",
+      "date": "2026-11-23",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPWl9JcllndmMwcUd5SEZqaFRCREs2enJrWkJ3VDBMQ1NCYTZOcTkzOTVDUGswMXRLRC1TQ0VxSkNwTFVSVkNFSUFUQnRrTzE5VnJxaGVrRTQ3NS02Rllrdjg2ZXJRQ2ZzQjJ4TWxsRW11UWtRU1ZvSXFETjVqVmliLVNJZi1hV0FuejNDaERUd2RfeFp6UnY1dTlpR0p6YWozUzJySTliM1BCTXAwRm9mWTlZa003R1ZCcGc?oc=5"
+    }
+  },
+  {
+    "company": "Bharat Semi",
+    "domain": null,
+    "funding": {
+      "round": "Seed",
+      "amount": "$24M",
+      "date": "2026-11-23",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQNktrTm9XU1NmQzg4Tk1yekR6T3ViRUszNW1xV21nQkZzeFE2X0lHNC13RVdUSWpmVWl6U253d0lCVDJHQ0NGM3pSZ0Q0ZnVpQ0Fsc21Sa2FaYzhxZnZvdE1oRlRaM0RFck55UFRtUGRxSEhyTFdJNkplQXA0MllCcg?oc=5"
     }
   },
   {
