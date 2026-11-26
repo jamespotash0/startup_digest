@@ -1,5 +1,105 @@
 [
   {
+    "company": "XEBO.ai",
+    "domain": "xebo.ai",
+    "funding": {
+      "round": "Series A",
+      "amount": "$10.5M",
+      "date": "2026-11-26",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOMGJLM1dSU0pfN3otZGdjWGM0NzZsSjhIUXhpcDlrRXkxTzNMQjB6YWhCX0lIMmVxdlNEMWNEOU5EV2VNa3JmeDVCbkc1VzdlYXNwWlRXbEZYa2tiTjZKdzBIRHFqYUxxMC1lTUlrUXRraVQtd1l0SlhobGkyNFRFZWdpbHpQX0JDR0JXNHk0NA?oc=5"
+    }
+  },
+  {
+    "company": "First Person Labs",
+    "domain": "fpl.company",
+    "funding": {
+      "round": "Seed",
+      "amount": "$10M",
+      "date": "2026-11-26",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE51LVViWWZLaGdZVlplUzV3bm1aRHVRcTV2QnRXenVhRTZ1LTc3c0k4RHJiRmFoQWdGTmtidXNBNDBpWmtpdk5MNmRxYy11QWh0SWJB?oc=5"
+    }
+  },
+  {
+    "company": "Verra",
+    "domain": "verra.com",
+    "funding": {
+      "round": "Seed",
+      "amount": "$5M",
+      "date": "2026-11-26",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxORkhrNmRWdHp0MTE2bUd4U2JFMzlzbmJXc01xa1VxeTlqcFBkRVNUNG5FcjEtbkR2UU9aVF9PNlowSmdoVEdkakgwSHQtRGtqMzZmX2duQWFLS1dGOU1ra1lZdHpGQkNsNDJtZzFNVlB2TzBuSWwyT0J5U2RMMWpPQ19FUk5VZm50dVZsVGdTSUdPbTBndERaTGpnX191VTVI?oc=5"
+    }
+  },
+  {
+    "company": "Rialto",
+    "domain": "rialto.xyz",
+    "funding": {
+      "round": "Seed",
+      "amount": "$5M",
+      "date": "2026-11-26",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5KVEJHZzZfaWVvcHdPZXVPZXllWlVDRHhFenRmMHg5Zk55dEpvcWRxR2lTSk9QaUtwdGJiSERDeWpUWHpISVJtVkpkUmY2RWdheGlYSUZhNTc?oc=5"
+    }
+  },
+  {
+    "company": "Every",
+    "domain": "every.io",
+    "funding": {
+      "round": "Series A",
+      "amount": "$17.5M",
+      "date": "2026-11-26",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9rQVJPcUdVcXN4N1E2ZEt0N08tNFFhbnZ6ZldXaU01Y1JoTUZMMmIxQS1yWHNFUndPNWpBZkczWW1KNlhTd3dvN1FNelVfMUJnTmww?oc=5"
+    }
+  },
+  {
+    "company": "Aeon-",
+    "domain": "aeon.com.ng",
+    "funding": {
+      "round": "Pre-seed",
+      "amount": "",
+      "date": "2026-11-26",
+      "url": "https://news.google.com/rss/articles/CBMixwJBVV95cUxQc1A1MERWaThUdmJCUXo0SmJiUDFTV04xRHlYVkpVNlk1ZzIwMlo2ZjNtbFhCTDdHb2tqalpIWC1DaG5CeEJQNEV4aW1VdDBJbWpOY25kTERYMmtCMUtOVFJhMl9VYXp5ZTktb2s1dGRINXZHbkFkYTRFeFo5cm1ZRE9EbmpIZktnaUJUZS0zNlViVmhWdTVmaE5YbGlhUl9TYk9Ra2p2d29oT1VSV0dzYzJHQ3JiZFdZcl8yNXpMakdRa2lVMnFuRjdFbXV5emN1QkdtY1ByZXhlcmxzWXZjY0hwRUJ2UENNOGIyODRNeF9pT2xaNERmd0VxUUdfOUFNa09FeGRjRzQ2dFJjVjdwMWlWbG5NV3hQaEhEc0RpYlpXZlplWmJlcWlaazdlTGoxREZnR2VXY3RpcjRhYWZJTGJTQndHODQ?oc=5"
+    }
+  },
+  {
+    "company": "Sequent",
+    "domain": "sequent.inc",
+    "funding": {
+      "round": "Pre-seed",
+      "amount": "$2.2M",
+      "date": "2026-11-26",
+      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1JODF4TFk4aU51WURVc1lCZHhJNmhqcDVITElmQnRCVmE3dlc1NE5kTk54U1M2enpCUlRuSFBkU09UT3UtdEVHWmlyMEpGVURiT05YbU5SQ0dhOHZPMTlnaXc1VG1NVFM4Z1Bnd1V1WFV5QQ?oc=5"
+    }
+  },
+  {
+    "company": "Ulys",
+    "domain": "ulysapp.com",
+    "funding": {
+      "round": "",
+      "amount": "$4M",
+      "date": "2026-11-25",
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQeGhmQkNqNVNFZWVkTW9ETUZsSFhwTzBaOWRwMGp4VU4tNlRaMEFzQVkxaUJHLTVqRzNkVlJnWHRNc0JDOVotcWpBenY1VkZaX01YbjhnbXVsTFUtUGxfbm1iM1RUUWtfdVlXTnZPSlpQRmd6U2cxbzczVi1Lck1iY3RLZ2JtcTB3YjBGcQ?oc=5"
+    }
+  },
+  {
+    "company": "Online estate planner Safewill",
+    "domain": "safewill.com",
+    "funding": {
+      "round": "Series C",
+      "amount": "$15M",
+      "date": "2026-11-25",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPekNNSkNSUXc2U3lVVGFKbkFncFNNTW95c3dBekNUZjdfQWdqZTIxajdXSHp5bnZjWHRscjloUGNPSUw1NGhlUmdicWZta09FQlg2ZS1KenlSNHpVenB6b2lmblRuZWpzcWlBLW13R2NlZmdOX05FeXFiVkx6eTZ5d2hBN25WYTJtR0tTTlJuWjMtcEZCNDB2dy1qWFNzS3FERDlB?oc=5"
+    }
+  },
+  {
+    "company": "Cournot",
+    "domain": "cournot.ai",
+    "funding": {
+      "round": "",
+      "amount": "$5M",
+      "date": "2026-11-26",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPWXpDVjdkdUxyclp2QkIxT1lNQi15clI3a1Qydm13d3lKQUR4UXMtQ2F4UFlPYm41aG1FUnhzeGEta0VDNW0xZ2hncXA3S0tOY2NIRUZqQWVNdjk2Nmx0eEVfU0ZtcnFxWjJiMGQ4Qmc4V3JTM3FpVVNseDZZQ0YwRjZmY1h1RlMydFgwNzFUTnIxc0k?oc=5"
+    }
+  },
+  {
     "company": "Zipher",
     "domain": "zipher.cloud",
     "funding": {
@@ -27,16 +127,6 @@
       "amount": "$20M",
       "date": "2026-11-25",
       "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1CZFB4aHBSUDk1RExQLVRxclFHUW5MbVNBRVJoQ0pmbWNkZ04wRVhCVTc1c20yMnRST3pBeU51dlpSSWpMY3pfZzF2bE5DaVZ0QTFBLTlHdUNYV2xnempkWWFZOFNzVURmWE1aVE9YSHliajZodDlONlBQT0p6UQ?oc=5"
-    }
-  },
-  {
-    "company": "Every",
-    "domain": "every.io",
-    "funding": {
-      "round": "Series A",
-      "amount": "$17.5M",
-      "date": "2026-11-25",
-      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPaVl6WFI4WmZ1Wm1iR21oUWdxQ08tNUF3WFZtbkthRC1NNHdWUFkzZTJjX1MwOHFXTDhvSFdMOGs5TEtrYnpfSUxDS2FndGdLVGx5eGljSl9HZ3czZUlDN3BnVVR3dWw3MHlTR2xVQ0pKNHJfNWE0M2d3ZTJzTktvdmt3WjA0UTFsd3dMN1BlWG9uWlZC?oc=5"
     }
   },
   {
@@ -80,26 +170,6 @@
     }
   },
   {
-    "company": "Sequent",
-    "domain": "sequent.inc",
-    "funding": {
-      "round": "Pre-seed",
-      "amount": "$2.2M",
-      "date": "2026-11-25",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBFeXphMklZSUNHa1dYemRiN2RTVHZZV1JRT2QySEZhTmZBMm5xcFpWMzVkRU1kaG5GUkJ0SlZVV2phUjl0c0Rxa3d2OUlWOU4teVJpcmJhWGQ3QW1EcGlDTl82Y2Q3ZlB6bzZlN0N1Znk2SmE0SVNDalV0S0RaR0k?oc=5"
-    }
-  },
-  {
-    "company": "Online estate planner Safewill",
-    "domain": "safewill.com",
-    "funding": {
-      "round": "Series C",
-      "amount": "$15M",
-      "date": "2026-11-25",
-      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPd3Y1WWNmTTV6YlpBdjdNUGxseUVobnU3aWdwd1lWSk9KMEtYZy1OZGk5RjZUMlRZek1fam1tazdQLWtTR05ZelhSSGFhd3NvX082eTJUX0FFSGpJSHVjTC05UkE2YWpDOXRiX1RHR3htYnlldDBLUF9LRVdFMUJPUDFUR180VVhGZGtiakpQYXZ5UVpPMkYzS1BMMWlBRmQ1MjMw?oc=5"
-    }
-  },
-  {
     "company": "On the House",
     "domain": null,
     "funding": {
@@ -127,16 +197,6 @@
       "amount": "$12M",
       "date": "2026-11-23",
       "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPQllPQnp3SG4tWmFRbVRZWXo4d0xyeFpPeC1sWjlOa2NTTEYxeUVqekxIaGZZTWwwYmJ1ckJGZ0ZBOHptVG5EaVllRmdFanBlaVI3VmF6ekwwYjhXWERUaWRmWGxiQ0t2RkQwVmp1VmFMWEZ4TW9XcE1PeG9jMEx2d1F4dS1jaWZXWWhqSzBvVDVRbDVVZWdQSVZIeWVXQ2lWQzBGa3NneWZmWnNXZ0VMREw1MU1nMTg?oc=5"
-    }
-  },
-  {
-    "company": "Verra",
-    "domain": "",
-    "funding": {
-      "round": "Seed",
-      "amount": "$5M",
-      "date": "2026-11-24",
-      "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPVkp5MDliWWpQeXBSTXlpS1NhYV9QVmkxZ3hhUEFZUGNJNVN4OE8zTjhkQ3FtMzZEUDkxeXpHUldUdERpVjhzNU92TV9Va2V4LWpKMG4zdzB1am9ETjlJenUtTFc0YjQtNk9ob3g3Z01UaDR2SjdublhkQjVrczlTd004WXRrX1JDbXN4dkhMYkhsUFItNElycUJ4RFlnQWNONjFCZ1BjYjN6bEhCZzdlUmZSZkpLV3MtTWs3bjVBLTFIWHNneThKWkk2ZmcwQ0VJYmFPNFVESjE?oc=5"
     }
   },
   {
