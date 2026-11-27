@@ -1,15 +1,5 @@
 [
   {
-    "company": "XEBO.ai",
-    "domain": "xebo.ai",
-    "funding": {
-      "round": "Series A",
-      "amount": "$10.5M",
-      "date": "2026-11-26",
-      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOMGJLM1dSU0pfN3otZGdjWGM0NzZsSjhIUXhpcDlrRXkxTzNMQjB6YWhCX0lIMmVxdlNEMWNEOU5EV2VNa3JmeDVCbkc1VzdlYXNwWlRXbEZYa2tiTjZKdzBIRHFqYUxxMC1lTUlrUXRraVQtd1l0SlhobGkyNFRFZWdpbHpQX0JDR0JXNHk0NA?oc=5"
-    }
-  },
-  {
     "company": "First Person Labs",
     "domain": "fpl.company",
     "funding": {
@@ -30,16 +20,6 @@
     }
   },
   {
-    "company": "Rialto",
-    "domain": "rialto.xyz",
-    "funding": {
-      "round": "Seed",
-      "amount": "$5M",
-      "date": "2026-11-26",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5KVEJHZzZfaWVvcHdPZXVPZXllWlVDRHhFenRmMHg5Zk55dEpvcWRxR2lTSk9QaUtwdGJiSERDeWpUWHpISVJtVkpkUmY2RWdheGlYSUZhNTc?oc=5"
-    }
-  },
-  {
     "company": "Every",
     "domain": "every.io",
     "funding": {
@@ -47,6 +27,46 @@
       "amount": "$17.5M",
       "date": "2026-11-26",
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9rQVJPcUdVcXN4N1E2ZEt0N08tNFFhbnZ6ZldXaU01Y1JoTUZMMmIxQS1yWHNFUndPNWpBZkczWW1KNlhTd3dvN1FNelVfMUJnTmww?oc=5"
+    }
+  },
+  {
+    "company": "Dunzo founder's AI startup M",
+    "domain": "",
+    "funding": {
+      "round": "",
+      "amount": "$9M",
+      "date": "2026-11-27",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOTTF6TFBWbnVld2tjcXBrRldxZEg0MGZWd3l2aHZjU3d6Sm5aRm1QSkQ2QmJHaS1XR1FLNmdZTW82UkpSNFluX0c3UWNJZ1hNZ2dENEVDTVA4SU5XQnBhYWltMU5ORWZiMnk3bmJ2Ymt0cVc3bmc2MXo2bW54RzVITmVCeFZka2lKMTl5MnZYeHprbm1vREgxVg?oc=5"
+    }
+  },
+  {
+    "company": "Audun Collection",
+    "domain": "audun.co",
+    "funding": {
+      "round": "",
+      "amount": "$3M",
+      "date": "2026-11-27",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4ybU45RTMyM3VNblppeldFdVNIZFZBdzh2WXJlS1hQdGRxbm5pUW9yUlo3a3FXNEtlRm9fek5UTDdZWFRnNjcycmg3NUk1X0tTdl9rUjNWUk5GZUlMMDdWUHFUUDFFcHZIUjNIUEFfSlhDU0lOUnc2dFdWT19ybkU?oc=5"
+    }
+  },
+  {
+    "company": "XEBO.ai",
+    "domain": "xebo.ai",
+    "funding": {
+      "round": "Series A",
+      "amount": "$10.5M",
+      "date": "2026-11-26",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOMGJLM1dSU0pfN3otZGdjWGM0NzZsSjhIUXhpcDlrRXkxTzNMQjB6YWhCX0lIMmVxdlNEMWNEOU5EV2VNa3JmeDVCbkc1VzdlYXNwWlRXbEZYa2tiTjZKdzBIRHFqYUxxMC1lTUlrUXRraVQtd1l0SlhobGkyNFRFZWdpbHpQX0JDR0JXNHk0NA?oc=5"
+    }
+  },
+  {
+    "company": "Rialto",
+    "domain": "rialto.xyz",
+    "funding": {
+      "round": "Seed",
+      "amount": "$5M",
+      "date": "2026-11-26",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5KVEJHZzZfaWVvcHdPZXVPZXllWlVDRHhFenRmMHg5Zk55dEpvcWRxR2lTSk9QaUtwdGJiSERDeWpUWHpISVJtVkpkUmY2RWdheGlYSUZhNTc?oc=5"
     }
   },
   {
